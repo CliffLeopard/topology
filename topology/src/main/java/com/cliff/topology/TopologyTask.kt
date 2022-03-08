@@ -58,11 +58,11 @@ class TopologyTask(
     override fun run() {
         if (state.get() > 0) return
         state.addAndGet(1)
-        listener?.beforeRun(name,mainThread)
-        val startTime = System.currentTimeMillis();
+        listener?.beforeRun(name, mainThread)
+        val startTime = System.currentTimeMillis()
         runnable.run()
         state.addAndGet(1)
-        listener?.afterRun(name, mainThread,System.currentTimeMillis() - startTime)
+        listener?.afterRun(name, mainThread, System.currentTimeMillis() - startTime)
         schedule()
     }
 

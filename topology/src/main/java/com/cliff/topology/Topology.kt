@@ -25,13 +25,6 @@ class Topology(private val name: String, private val firstTask: TopologyTask, pr
     }
 
     /**
-     * 获取任务图的名称
-     */
-    fun getName(): String {
-        return this.name
-    }
-
-    /**
      * 链接两个完整排序任务图
      */
     fun after(topology: Topology) {
@@ -62,7 +55,7 @@ class Topology(private val name: String, private val firstTask: TopologyTask, pr
                 topologyRunListener?.topologyStart()
             }
             val finalTask = TopologyTask("${name}:endPoint\$Topology") {
-                val endTime = System.currentTimeMillis();
+                val endTime = System.currentTimeMillis()
                 topologyRunListener?.topologyFinish(endTime - startTime)
             }
             taskRunListener?.let { listen ->

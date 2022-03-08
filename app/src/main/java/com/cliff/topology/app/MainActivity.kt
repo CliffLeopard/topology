@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
             println("Task3 -- thread:${Thread.currentThread().name}  end")
         }.after(task1)
 
-        val task4 = TopologyTask("Task4", false) {
+        TopologyTask("Task4", false) {
             println("Task4 -- thread:${Thread.currentThread().name}")
         }.after(task2)
 
